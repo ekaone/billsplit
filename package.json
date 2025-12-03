@@ -25,8 +25,8 @@
     "lodash": "^4.17.21",
     "lucide-react": "^0.508.0",
     "nanoid": "^5.1.5",
-    "next": "15.3.2",
-    "next-plausible": "^3.12.4",
+    "next": "16.0.7",
+    "next-plausible": "^3.12.5",
     "next-s3-upload": "^0.3.4",
     "nuqs": "^2.4.3",
     "react": "^19.0.0",
@@ -36,9 +36,8 @@
     "react-dropzone": "^14.3.8",
     "react-hook-form": "^7.56.3",
     "tailwind-merge": "^3.2.0",
-    "together-ai": "^0.16.0",
-    "zod": "^3.24.4",
-    "zod-to-json-schema": "^3.24.5"
+    "together-ai": "^0.32.0",
+    "zod": "^4.1.13"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

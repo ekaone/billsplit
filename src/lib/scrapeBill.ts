@@ -1,6 +1,5 @@
 import { z } from "zod";
 import { togetherBaseClient } from "./clients";
-import zodToJsonSchema from "zod-to-json-schema";
 import dedent from "dedent";
 
 export const extractSchema = z.object({
@@ -58,8 +57,8 @@ export async function scrapeBill({
   billUrl: string;
   model?: string;
 }): Promise<ExtractSchemaType> {
-  const jsonSchema = zodToJsonSchema(extractSchema, {
-    target: "openAi",
+  const jsonSchema = z.toJSONSchema(extractSchema, {
+    target: "openapi-3.0",
   });
 
   const extract = await togetherBaseClient.chat.completions.create({
