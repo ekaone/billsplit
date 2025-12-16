@@ -6,5 +6,6 @@ export default defineConfig({
     environment: "node",
     include: ["**/*.eval.ts"],
     setupFiles: ["dotenv/config"],
+    testTimeout: 120000, // 2 minutes timeout per test
   },
 });

@@ -2,6 +2,7 @@ import { evalite } from "evalite";
 import { JSONDiff } from "autoevals";
 import { scrapeBill } from "../src/lib/scrapeBill";
 import { billEvals } from "./billsEvals";
+import { billScorer } from "./billScorer";
 
 const visionModels = [
   "meta-llama/Llama-4-Scout-17B-16E-Instruct",
@@ -27,6 +28,6 @@ visionModels.map((model) => {
           model: model,
         })
       ),
-    scorers: [JSONDiff],
+    scorers: [billScorer],
   });
 });
