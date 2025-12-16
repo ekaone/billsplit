@@ -1,5 +1,5 @@
 import { evalite } from "evalite";
-import { Levenshtein } from "autoevals";
+import { JSONDiff } from "autoevals";
 import { scrapeBill } from "../src/lib/scrapeBill";
 import { billEvals } from "./billsEvals";
 
@@ -27,6 +27,6 @@ visionModels.map((model) => {
           model: model,
         })
       ),
-    scorers: [Levenshtein],
+    scorers: [JSONDiff],
   });
 });

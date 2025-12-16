@@ -45,11 +45,17 @@ const systemPrompt = dedent`
   Do not include any text before or after the JSON. Do not explain your reasoning. Do not use markdown.
 
   Extraction rules:
-  - businessName: Restaurant/business name from receipt, or null
-  - date: Receipt date in YYYY-MM-DD format (no leading zeros for day), or null
-  - billItems: Array of objects with "name" (item name) and "price" (decimal number)
+  - businessName: Main restaurant/business name from receipt header, or null. Clean and normalize the name.
+  - date: Receipt date in YYYY-MM-DD format, or null. Use 4-digit year, 2-digit month (with leading zero if needed), 2-digit day (with leading zero if needed).
+  - billItems: Array of objects with "name" (clean item name without quantity prefixes like "1 x" or "2x") and "price" (decimal number as shown)
   - tax: Tax amount as decimal number, or null
   - tip: Tip/gratuity amount as decimal number, or null
+
+  IMPORTANT CLEANUP RULES:
+  - Item names: Remove quantity indicators like "1 x", "2x", "Qty:", etc. Just extract the clean item name.
+  - Business names: Extract the main business name, not document headers or other text.
+  - Dates: Always format as YYYY-MM-DD with proper leading zeros.
+  - Prices: Keep as decimal numbers exactly as shown on receipt.
  `;
 
 export async function scrapeBill({
