@@ -60,7 +60,7 @@ const systemPrompt = dedent`
 
 export async function scrapeBill({
   billUrl,
-  model = "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+  model = "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
 }: {
   billUrl: string;
   model?: string;
